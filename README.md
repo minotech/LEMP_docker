@@ -22,8 +22,10 @@
   
               - ./mariadb/data:/var/lib/mysql
               
-  예를 들어 이부분을 보면 ./mariadb/data 현재 디렉토리밑의 mariadb/data 폴더를 의미합니다. :/var/lib/mysql 이것은 컨테이너의 폴더입니다.
-  즉 컨테이너에서 /var/lib/mysql에 저장될 데이타를 host 컴퓨터의 ./mariadb/data로 저장시킨다는 의미입니다.
+  예를 들어 이부분을 보면 ./mariadb/data 현재 디렉토리밑의 mariadb/data 폴더를 의미합니다. 
+  :/var/lib/mysql 이것은 컨테이너의 폴더입니다.
+  즉 컨테이너에서 /var/lib/mysql에 저장될 데이타를 
+  host 컴퓨터의 ./mariadb/data로 저장시킨다는 의미입니다.
   
 5. db: 그누보드등에서 db서버의 host를 주소나 localhost로 넣으면 안됩니다. 여기에 적여있는 db를 host이름에 넣어주세요..
 
@@ -34,14 +36,18 @@
 
 8. ctrl-c 를 누르면 종료됩니다. 또는 docker-compose stop 과 같은 명령어입니다.
 
-9. 그누보드 신규 설치는 테스트하였습니다. 그런데, 기존 소스를 복사해와서 실행 시킬 때, 자동등록방지 캡챠가 안나오고 있습니다. 
-   해결책을 알려주시면 감사하겠습니다.
+9. 그누보드 신규 설치는 테스트하였습니다. 그런데, 기존 소스를 복사해와서 실행 시킬 때, 
+   자동등록방지 캡챠가 안나오고 있습니다. 해결책을 알려주시면 감사하겠습니다.
    
    
 10. 참고로 DB를 백업, 복원하는 법입니다.
 
-   일반백업 : $sudo mysqldump -u root --databases DB명 > /backup.sql      DB명 데이타베이스를 루트폴더 backpu.sql로 백업 
-             $sudo mysqldump -u root -p비밀번호 --databases DB명 > /backup.sql   비밀번호 있는경우 -p비밀번호 추가 (p와 비밀번호사이 공백없음)
+   일반백업 : 
+   $sudo mysqldump -u root --databases DB명 > /backup.sql      
+   DB명 데이타베이스를 루트폴더 backpu.sql로 백업 
+   
+   $sudo mysqldump -u root -p비밀번호 --databases DB명 > /backup.sql   
+   비밀번호 있는경우 -p비밀번호 추가 (p와 비밀번호사이 공백없음)
 
    도커백업 : $docker exec -i 컨테이너명  mysqldump -u root -p비밀번호  --databases DB명 > /backup.sql 
    
