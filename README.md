@@ -41,8 +41,7 @@
    
 10. 참고로 DB를 백업, 복원하는 법입니다.
 
-   일반백업 : 
-   
+   일반백업 :    
    $sudo mysqldump -u root --databases DB명 > /backup.sql      
    DB명 데이타베이스를 루트폴더 backpu.sql로 백업 
    
