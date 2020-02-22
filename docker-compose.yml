@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+    db:
+        container_name: mariadb
+        image: mariadb
+        restart: always
+        ports:
+              - 3306:3306
+        volumes:
+              - ./mariadb/data:/var/lib/mysql
+              - ./mariadb/config:/etc/mysql/conf.d
+
+        environment:
+              - MYSQL_ROOT_PASSWORD=mypass
+
+          
+    
+
+
+    php:
+#        image: php:fpm		#official image but modules are not included
+        image: ifnlife/php-ext:v7.4.3
+        volumes:
+             - ./www:/www  #home diretory
+             - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
+
+
+    nginx:
+        image: nginx:latest
+        ports:
+             - "80:80"
+        volumes:
+             - ./www:/www  #home diretory
+             - ./nginx/conf.d:/etc/nginx/conf.d
+             - ./nginx/logs:/var/log/nginx
+          
+
+
+   
+
