@@ -22,6 +22,7 @@
               - ./mariadb/data:/var/lib/mysql
               
   예를 들어 이부분을 보면 ./mariadb/data 현재 디렉토리밑의 mariadb/data 폴더를 의미합니다. 
+  
   :/var/lib/mysql 이것은 컨테이너의 폴더입니다.
   즉 컨테이너에서 /var/lib/mysql에 저장될 데이타를 
   host 컴퓨터의 ./mariadb/data로 저장시킨다는 의미입니다.
