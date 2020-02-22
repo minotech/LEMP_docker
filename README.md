@@ -19,6 +19,7 @@
    컨테이너 폴더는 건드릴 필요없고, host 컴퓨터 부분만 변경하면 됩니다.
   
   volumes:
+  
               - ./mariadb/data:/var/lib/mysql
               
   예를 들어 이부분을 보면 ./mariadb/data 현재 디렉토리밑의 mariadb/data 폴더를 의미합니다. :/var/lib/mysql 이것은 컨테이너의 폴더입니다.
