@@ -19,6 +19,7 @@ services:
 
 
     php:
+        container_name: php-fpm
 #        image: php:fpm		#official image but modules are not included
         image: ifnlife/php-ext:v7.4.3
         volumes:
@@ -27,6 +28,7 @@ services:
 
 
     nginx:
+        container_name: nginx
         image: nginx:latest
         ports:
              - "80:80"
