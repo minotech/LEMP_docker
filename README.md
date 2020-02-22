@@ -16,9 +16,8 @@
      log 폴더는 작동하지 않습니다.
      
 4. docker-compose.yml 파일을 잘 보시면 volumes 부분의 앞부분이 host 컴퓨터의 폴더이고, :뒷부분이 컨테이너 폴더입니다.
-   컨테이너 폴더는 건드릴 필요없고, host 컴퓨터 부분만 변경하면 됩니다.
-  
-  volumes:
+   컨테이너 폴더는 건드릴 필요없고, host 컴퓨터 부분만 변경하면 됩니다. 
+
   
               - ./mariadb/data:/var/lib/mysql
               
@@ -43,14 +42,18 @@
 10. 참고로 DB를 백업, 복원하는 법입니다.
 
    일반백업 : 
+   
    $sudo mysqldump -u root --databases DB명 > /backup.sql      
    DB명 데이타베이스를 루트폴더 backpu.sql로 백업 
    
    $sudo mysqldump -u root -p비밀번호 --databases DB명 > /backup.sql   
    비밀번호 있는경우 -p비밀번호 추가 (p와 비밀번호사이 공백없음)
 
-   도커백업 : $docker exec -i 컨테이너명  mysqldump -u root -p비밀번호  --databases DB명 > /backup.sql 
+   도커백업 : 
+   $docker exec -i 컨테이너명  mysqldump -u root -p비밀번호  --databases DB명 > /backup.sql 
    
-   일반복원 : mysql -u root -p비밀번호  < ./backup.sql
+   일반복원 : 
+   mysql -u root -p비밀번호  < ./backup.sql
    
-   도커복원 : $docker exec -i 컨테이너명  mysql -u root -p비밀번호  < ./backup.sql
+   도커복원 : 
+   $docker exec -i 컨테이너명  mysql -u root -p비밀번호  < ./backup.sql
