@@ -12,9 +12,7 @@ services:
               - ./mariadb/config:/etc/mysql/conf.d
 
         environment:
-              - MYSQL_ROOT_PASSWORD=mypass
-        user: "1000:1000"
-          
+              - MYSQL_ROOT_PASSWORD=mypass         
     
 
 
