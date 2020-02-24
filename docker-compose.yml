@@ -13,7 +13,7 @@ services:
 
         environment:
               - MYSQL_ROOT_PASSWORD=mypass
-
+        user: "1000:1000"
           
     
 
@@ -25,6 +25,7 @@ services:
         volumes:
              - ./www:/www  #home diretory
              - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
+        user: "1000:1000"
 
 
     nginx:
