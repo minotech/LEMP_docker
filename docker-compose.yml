@@ -12,7 +12,8 @@ services:
               - ./mariadb/config:/etc/mysql/conf.d
 
         environment:
-              - MYSQL_ROOT_PASSWORD=mypass         
+              - MYSQL_ROOT_PASSWORD=mypass        
+              - TZ=Asia/Seoul
     
 
 
@@ -24,7 +25,8 @@ services:
              - ./www:/www  #home diretory
              - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
         user: "1000:1000"
-
+        environment:
+             - TZ=Asia/Seoul
 
     nginx:
         container_name: nginx
@@ -36,7 +38,6 @@ services:
              - ./nginx/conf.d:/etc/nginx/conf.d
              - ./nginx/logs:/var/log/nginx
           
-
-
-   
+        environment:
+             - TZ=Asia/Seoul
 
